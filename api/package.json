@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start:build": "tsc -w",
-    "start:run": "nodemon build/app.js",
+    "start:run": "nodemon build/src/app.js",
     "start": "concurrently npm:start:*",
     "test": "mocha --require ts-node/register --recursive 'test/**/*.test.ts'"
   },
@@ -15,6 +15,7 @@
     "@types/chai": "^4.2.14",
     "@types/koa": "^2.11.6",
     "@types/mocha": "^8.0.4",
+    "@types/nock": "^11.1.0",
     "@types/sinon": "^9.0.9",
     "@types/supertest": "^2.0.10",
     "chai": "^4.2.0",
@@ -25,6 +26,7 @@
     "inversify": "^5.0.1",
     "koa": "^2.13.0",
     "mocha": "^8.2.1",
+    "nock": "^13.0.5",
     "nodemon": "^2.0.6",
     "reflect-metadata": "^0.1.13",
     "routing-controllers": "^0.9.0-alpha.6",
