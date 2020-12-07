@@ -26,10 +26,7 @@ const StockPrice: React.FC = () => {
           onSubmit={(values, actions) => {
             getStockPrice(inputText)
               .then((stockPrice) => {
-                stockPrices[stockPrice.symbol] = {
-                  symbol: stockPrice.symbol,
-                  price: stockPrice.price,
-                };
+                stockPrices[stockPrice.symbol] = stockPrice;
                 setStockPrices({ ...stockPrices });
               })
               .catch((reason) => {
