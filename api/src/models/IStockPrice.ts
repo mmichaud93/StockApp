@@ -1,4 +1,4 @@
-export interface StockPrice {
+export interface IStockPrice {
   currentPrice: number;
   openingPrice: number;
   highPrice: number;

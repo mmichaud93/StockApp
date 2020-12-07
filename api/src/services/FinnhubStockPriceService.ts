@@ -1,7 +1,7 @@
 import { INTERFACE as IStockPriceService } from "./IStockPriceService";
 import { inject, injectable } from "inversify";
 import * as IHttpService from "./IHttpService";
-import { StockPrice } from "../models/StockPrice";
+import { IStockPrice } from "../models/IStockPrice";
 import { InternalServerError } from "routing-controllers";
 
 @injectable()
@@ -9,7 +9,7 @@ export class FinnhubStockPriceService implements IStockPriceService {
   @inject(IHttpService.TYPE)
   private httpService!: IHttpService.INTERFACE;
 
-  async getPrice(symbol: string): Promise<StockPrice> {
+  async getPrice(symbol: string): Promise<IStockPrice> {
     // the Node https module is wrapped in a service here because I wanted this to be an async call.
     // so the service handles the promise wrapping so we don't duplicate code if we wanted to add more functionality
     try {
@@ -33,7 +33,7 @@ export class FinnhubStockPriceService implements IStockPriceService {
         highPrice: response.data.h,
         lowPrice: response.data.l,
         previousClosePrice: response.data.pc,
-        time: new Date(response.data.t),
+        time: new Date(response.data.t * 1000),
       };
     } catch (error) {
       console.log(error);

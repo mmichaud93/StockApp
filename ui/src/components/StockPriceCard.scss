@@ -1,0 +1,30 @@
+@import "./../custom.scss";
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.green-border {
+  border-color: #008f11;
+}
+
+.red-border {
+  border-color: #8f001f;
+}
+
+.card-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.card-col {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}

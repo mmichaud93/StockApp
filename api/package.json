@@ -25,6 +25,7 @@
     "dotenv": "^8.2.0",
     "inversify": "^5.0.1",
     "koa": "^2.13.0",
+    "koa2-cors": "^2.0.6",
     "mocha": "^8.2.1",
     "nock": "^13.0.5",
     "nodemon": "^2.0.6",
@@ -34,5 +35,8 @@
     "source-map-support": "^0.5.19",
     "superagent": "^6.1.0",
     "supertest": "^6.0.1"
+  },
+  "devDependencies": {
+    "@types/koa2-cors": "^2.0.1"
   }
 }

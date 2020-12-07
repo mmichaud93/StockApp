@@ -5,12 +5,12 @@ import * as IStockPriceService from "./../../../src/services/IStockPriceService"
 import sinon, { SinonStub } from "sinon";
 
 import { Setup } from "../../Setup";
-import { StockPrice } from "../../../src/models/StockPrice";
+import { IStockPrice } from "../../../src/models/IStockPrice";
 import { expect } from "chai";
 
 describe("Stock Resource", () => {
   describe("GET@/stock/:symbol", () => {
-    const tslaStockPrice: StockPrice = {
+    const tslaStockPrice: IStockPrice = {
       currentPrice: 500,
       openingPrice: 510,
       highPrice: 520,

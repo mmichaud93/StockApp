@@ -10,18 +10,22 @@ export class HttpService implements IHttpService {
         .get(options, (res) => {
           res.setEncoding("utf8");
           res.on("data", (data) => {
-            resolve({ status: res.statusCode, data: JSON.parse(data) });
+            try {
+              resolve({ status: res.statusCode, data: JSON.parse(data) });
+            } catch (err) {
+              reject(err);
+            }
           });
         })
-        .on("error", (e) => {
-          reject(e);
+        .on("error", (err) => {
+          reject(err);
         });
 
       request.on("timeout", () => {
         reject(new Error("Connection timed out"));
       });
-      request.on("error", (e) => {
-        reject(e);
+      request.on("error", (err) => {
+        reject(err);
       });
     });
   }

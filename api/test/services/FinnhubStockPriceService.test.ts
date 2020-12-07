@@ -14,7 +14,7 @@ describe("FinnhubStockPriceService", () => {
       h: 3,
       l: 4,
       pc: 5,
-      t: new Date().toISOString(),
+      t: new Date().getTime() / 1000,
     },
   };
 
@@ -52,7 +52,7 @@ describe("FinnhubStockPriceService", () => {
       expect(stockPrice.highPrice).to.equal(testSuccessData.data.h);
       expect(stockPrice.lowPrice).to.equal(testSuccessData.data.l);
       expect(stockPrice.previousClosePrice).to.equal(testSuccessData.data.pc);
-      expect(stockPrice.time.toISOString()).to.equal(testSuccessData.data.t);
+      expect(stockPrice.time.getTime()).to.equal(new Date(testSuccessData.data.t * 1000).getTime());
     });
     // mock error
     // getPrice should throw 500

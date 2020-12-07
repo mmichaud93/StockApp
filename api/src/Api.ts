@@ -2,6 +2,7 @@ import "reflect-metadata";
 
 import { Server } from "http";
 import * as Koa from "koa";
+import cors from "koa2-cors";
 import { createKoaServer, useContainer } from "routing-controllers";
 import { Container } from "inversify";
 
@@ -16,7 +17,7 @@ export class Api {
   }
 
   start(): Server {
-    return this.app.listen(this.port, () => {
+    return this.app.use(cors({ origin: "*" })).listen(this.port, () => {
       // koa server is listening now
       console.log(`Listening on port ${this.port}`);
     });
