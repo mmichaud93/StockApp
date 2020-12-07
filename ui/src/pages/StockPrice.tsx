@@ -1,12 +1,13 @@
 import { Formik } from "formik";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Alert, Button, Form } from "react-bootstrap";
 import * as Yup from "yup";
 import { getStockPrice } from "../services/StockPriceService";
 import "./StockPrice.css";
 import StockPriceCard from "../components/StockPriceCard";
+import { IStockPrice } from "../models/IStockPrice";
 
 const StockPrice: React.FC = () => {
   const [errorText, setErrorText] = useState<string>("");
@@ -84,9 +85,9 @@ const StockPrice: React.FC = () => {
         <div className="card-grid">
           {Object.keys(stockPrices)
             .map((key) => stockPrices[key])
-            .map((stockPrice) => {
+            .map((stockPrice: IStockPrice) => {
               return (
-                <div className="card-component-container">
+                <div key={stockPrice.symbol} className="card-component-container">
                   <StockPriceCard stockPrice={stockPrice} />
                 </div>
               );
